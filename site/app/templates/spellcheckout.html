@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ current_user.username }}, here are your results</h1>
+    <div id='textout'>Text Tested:<p>
+    {{ textout }}
+    </p></div>
+    <div id='misspelled'>Misspelled Words:<p>
+    {% for word in misspelled %}
+    {{ word }},
+    {% endfor %}
+    </p></div>
+{% endblock %}

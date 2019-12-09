@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Login History for {{ current_user.username }}.</h1>
+    <table style="width:100%">
+    <tr>
+      <th>Login ID</td>
+      <th>Login Time</td>
+      <th>Logout Time</td>
+    {% for login in user.logins %}
+    <tr>
+      <td id='login{{ login.id }}'>{{ login.id }}</td>
+      <td id='login{{ login.id }}_time'>{{ login.login_time }}</td>
+      {% if login.logout_time.year < 2000 %}
+      <td id='logout{{ login.id }}_time'>N/A.</td>
+      {% else %}
+      <td id='logout{{ login.id }}_time'>{{ login.logout_time }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,25 @@
+version: '3.5'
+services:
+  web:
+    build: ./
+    image: spell_check
+    deploy:
+      resources:
+        limits:
+            cpus: '0.50'
+            memory: 100MB
+      replicas: 4
+    ports:
+      - "8080:5000"
+      - "8081:80"
+    secrets:
+      - spell_check_secret_key
+      - spell_check_admin_mfa
+      - spell_check_admin_pw
+secrets:
+  spell_check_secret_key:
+    file: ./secrets/secret_key.secrets
+  spell_check_admin_mfa:
+    file: ./secrets/spell_check_admin_mfa.secrets
+  spell_check_admin_pw:
+    file: ./secrets/spell_check_admin_pw.secrets

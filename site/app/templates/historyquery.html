@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Test Query {{ tst.id }}</h1
+    <div id='testinfo'>
+        <p>Test ID:     <div id='queryid'>{{ tst.id }}</div></p>
+        <p>User:        <div id='username'>{{ tst.user.username }}</div></p>
+        <p>Performed:   <div id='time'>{{ tst.timestamp }}</div></p>
+        <p>Input:       <div id='querytext'>{{ tst.test_input }}</div></p>
+        <p>Results:     <div id='queryresults'>{{ tst.comma_results() }}</div></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Test History for {{ current_user.username }}.</h1>
+    <div id='numqueries'>{{ user.testcount() }} tests performed</div>
+    {% for tst in user.tests %}
+    <div id='query{{ tst.id }}'><a href='/history/query{{ tst.id }}'> Test {{ tst.id }} </a></div>
+    {% endfor %}
+{% endblock %}

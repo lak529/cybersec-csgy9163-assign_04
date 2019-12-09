@@ -1,0 +1,5 @@
+flask
+tox
+flask-wtf
+flask-sqlalchemy
+flask-login
